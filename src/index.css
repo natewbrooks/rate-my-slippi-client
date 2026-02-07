@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-red: #BA2121;
+  --color-green: #21BA45;
+  /* General */
+  --color-darkest: #121212;
+  --color-dark: #171717;
+  --color-light: #4B4B4B;
+  --color-lightest: #FFFFFF;
+  /* Rank colors */
+  --color-unranked: #;
+  --color-bronze: #;
+  --color-silver: #;
+  --color-gold: #F6A51E;
+  --color-platinum: #;
+  --color-diamond: #5DDFF4;
+  --color-master: #;
+  --color-grandmaster: #;
+}
