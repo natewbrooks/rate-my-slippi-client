@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import upArrow from "../../public/upArrow.svg";
 import { validateTag, normalizeTagInput } from "../utils/tag";
 import { useRouter } from "@tanstack/react-router";
+import { HomeFooter } from "../components/home.tsx/footer";
 
 
 export const Route = createFileRoute("/")({
