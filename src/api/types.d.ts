@@ -122,6 +122,7 @@ export class RankedNetplayProfile {
   id: string | null;
   ratingOrdinal: number;
   ratingUpdateCount: number | null;
+  rankName: string | null;
   wins: number;
   losses: number;
   dailyGlobalPlacement: number | null;

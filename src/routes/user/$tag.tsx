@@ -34,13 +34,15 @@ function RouteComponent() {
     }
   }
 
-  const continent = shortContinent(data?.continent || "");
+  const continent = shortContinent(data?.rankedProfile?.continent || "");
 
   
   return (
     <div>
       <UserHeader user={data} region={continent} />
-      <UserBanner user={data}/>
+      <div className='py-2'>
+        <UserBanner user={data}/>
+      </div>
     </div>
   )
 }

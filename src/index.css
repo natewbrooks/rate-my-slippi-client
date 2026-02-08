@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Marmelad&display=swap');
 @import "tailwindcss";
 
+:root {
+  --color-master: linear-gradient(
+    347.09deg,
+    #283E56 -14.24%,
+    #F9213C 115.83%
+  );
+}
+
 @theme {
   /* Colors */
   --color-red: #BA2121;
@@ -11,15 +19,14 @@
   --color-light: #4B4B4B;
   --color-lightest: #FFFFFF;
   /* Rank colors */
-  --color-unranked: #;
+  --color-unranked: #443B59;
   --color-bronze: #;
   --color-silver: #;
   --color-gold: #F6A51E;
   --color-platinum: #;
   --color-diamond: #5DDFF4;
-  --color-master: #;
-  --color-grandmaster: #;
-
+  /* --color-master: linear-gradient(347.09deg, #283E56 -14.24%, #F9213C 115.83%); */
+  /* --color-grandmaster: linear-gradient(347.09deg, #283E56 -14.24%, #F9213C 115.83%); */
   --font-sans: "Jomhuria", "sans";
   --font-serif: "Marmelad", "sans-serif"
 }
@@ -37,4 +44,14 @@ body,
     line-height: calc(var(--spacing) * 4) /* 0.75rem = 12px */;
     margin-bottom: -0.1em;
   }
+}
+
+
+/* Text gradient */
+.text-master,
+.text-grandmaster {
+  background: var(--color-master);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

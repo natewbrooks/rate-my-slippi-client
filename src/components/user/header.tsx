@@ -2,6 +2,7 @@ import React from 'react'
 import logo from "../../../public/brand/logo.svg"
 import { Link } from '@tanstack/react-router';
 import type { SlippiUser } from '../../api/types';
+import { Icon } from '@iconify/react';
 
 interface UserHeaderProps { 
   user: SlippiUser | undefined;
@@ -11,14 +12,21 @@ interface UserHeaderProps {
 export const UserHeader = ({ user, region }: UserHeaderProps) => {
   return (
     <div>
-      <div className='flex w-full justify-between p-4'>
-        <Link to='/' href='/'><img src={logo} width={80}/></Link>
+      <div className='flex w-full justify-between p-4 items-center'>
+        <Link to='/' href='/'><img src={logo} width={64}/></Link>
+        <div className='text-white flex gap-3'>
+          {/* <Icon icon="line-md:loading-twotone-loop"></Icon> */}
+          <Icon icon="stash:sun-solid" className='w-8 h-8'></Icon>
+          <Icon icon="mingcute:user-4-fill" className='w-8 h-8'></Icon>
+        </div>
       </div>
-      <div className='bg-red p-3 flex flex-col justify-between text-white'>
+      <div className='bg-red py-3 px-6 flex flex-col justify-between text-white'>
         <div className='flex gap-2 items-center text-3xl font-sans -mb-[0.2em] leading-3'>
           <h3>{region}</h3>
-          <h3>|</h3>
-          <span className=''>{user?.displayName}</span>
+          <h3>•</h3>
+          <span className=''>
+            <img></img>
+            {user?.displayName}</span>
         </div>
       </div>
     </div>
