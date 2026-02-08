@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Marmelad&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -18,4 +19,22 @@
   --color-diamond: #5DDFF4;
   --color-master: #;
   --color-grandmaster: #;
+
+  --font-sans: "Jomhuria", "sans";
+  --font-serif: "Marmelad", "sans-serif"
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+@layer utilities {
+  .font-sans {
+    --tw-leading: calc(var(--spacing) * 4) /* 0.75rem = 12px */;
+    line-height: calc(var(--spacing) * 4) /* 0.75rem = 12px */;
+    margin-bottom: -0.1em;
+  }
 }

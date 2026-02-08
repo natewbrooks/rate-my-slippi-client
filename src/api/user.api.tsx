@@ -1,11 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-
-export type SlippiUser = {
-  displayName: string;
-  connectCode: string;
-  fbUid: string | null;
-  status: string | null;
-}
+import { queryOptions } from "@tanstack/react-query"
+import type { SlippiUser } from "./types"
 
 export const fetchUserData = async (tag: string): Promise<SlippiUser> => {
   console.info(`Fetching user with id ${tag}`)
@@ -17,7 +11,9 @@ export const fetchUserData = async (tag: string): Promise<SlippiUser> => {
   return data;
 }
 
-export const userQueryOptions = (tag: string) => useQuery ({
+export const userQueryOptions = (tag: string) => queryOptions ({
   queryKey: ['user', tag],
   queryFn: () => fetchUserData(tag),
+  enabled: !!tag,
+  staleTime: 60_000 // invalidate every 60s
 })

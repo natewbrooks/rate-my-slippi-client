@@ -1,16 +1,46 @@
 import { useQuery } from '@tanstack/react-query'
-import { createFileRoute } from '@tanstack/react-router'
-import { fetchUserData } from '../../api/user.api'
-import { useUser } from '../../hooks/use-user'
+import { createFileRoute, type LoaderFnContext } from '@tanstack/react-router'
+import { userQueryOptions } from '../../api/user.api'
+import { UserHeader } from '../../components/user/header'
+import { UserBanner } from '../../components/user/banner'
 
 export const Route = createFileRoute('/user/$tag')({
-  loader: async ({ params }) => await fetchUserData(params.tag),
+  loader: async ({ params, context }) => {
+    // This fetches AND caches the data in React Query
+    // @ts-expect-error
+    await context.queryClient.ensureQueryData(userQueryOptions(params.tag))
+  },
+  errorComponent: ({ error }) => {
+    return (
+      <div className="p-4">
+        <h1 className="text-xl font-bold text-red-600">Error loading user</h1>
+        <p>{error.message}</p>
+      </div>
+    )
+  },
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const initalData = Route.useLoaderData();
   const { tag } = Route.useParams()
+  const { data, error } = useQuery(userQueryOptions(tag))
+  console.log(data)
+  console.log(error)
+
+  const shortContinent = (cntnt: string) => {
+    switch (cntnt) {
+      case "NORTH_AMERICA": 
+        return "NA";
+    }
+  }
+
+  const continent = shortContinent(data?.continent || "");
+
   
-  return <div>Hello {initalData?.displayName}</div>
+  return (
+    <div>
+      <UserHeader user={data} region={continent} />
+      <UserBanner user={data}/>
+    </div>
+  )
 }
