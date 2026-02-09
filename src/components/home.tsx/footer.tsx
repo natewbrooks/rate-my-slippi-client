@@ -7,10 +7,10 @@ import { Icon } from '@iconify/react';
 
 export const HomeFooter = ({}) => {
   return (
-    <div className='flex justify-between items-center p-4 bg-red w-full'>
+    <div className='flex justify-between items-center py-3 px-6 bg-red w-full absolute bottom-0'>
       <div className='text-white'>
-        <h3>Created by n8ful</h3>
-        <h3>Not affiliated with Slippi</h3>
+        <h2 className='font-sans text-3xl'>Created by n8ful</h2>
+        <h3 className='font-serif leading-4'>Not affiliated with Slippi</h3>
       </div>
     </div>
   )

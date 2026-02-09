@@ -34,22 +34,20 @@ export const UserBanner = ({ user }: UserBannerProps) => {
   const RankIcon = icons?.[variantIndex] ?? icons?.[0];
   
   return (
-    <div className="flex flex-col gap-3 px-6 text-white">
-      <h3 className="font-serif text-2xl">{user?.displayName}</h3>
+    <div className="flex flex-col gap-2 px-6 text-white">
+    <h3 className="font-serif text-2xl">{user?.displayName}</h3>
 
-      <div className="flex flex-col gap-4.5">
-        <h3 className="font-sans text-[64px]">
+      <div className="flex flex-col gap-2.5">
+        <h3 className="font-sans text-[64px] leading-4">
           {user?.connectCode}
         </h3>
 
-        <h3
-          className={cn(["font-sans text-[42px] flex items-center w-fit gap-1.5", rankColorClass])}
+        <div
+          className={cn(["font-sans flex items-center gap-1.5", rankColorClass])}
         >
-          {/* <BronzeIcon /> */}
-
-          {RankIcon ? <img src={RankIcon} className='relative bottom-1 w-7'></img> : null}
-          {rankLower.toUpperCase()} {!isGrandmaster ? variantRaw : ""}
-        </h3>
+          {RankIcon ? <img src={RankIcon} className='relative w-7'></img> : null}
+          <h3 className='text-[42px] leading-4'>{rankLower.toUpperCase()} {!isGrandmaster ? variantRaw : ""}</h3>
+        </div>
       </div>
 
       <div className='grid place-items-center grid-cols-6 w-fit gap-1 '>

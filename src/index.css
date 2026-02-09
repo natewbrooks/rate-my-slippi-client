@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Marmelad&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marmelad&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -7,6 +7,14 @@
     #283E56 -14.24%,
     #F9213C 115.83%
   );
+}
+
+@font-face {
+  font-family: "Jomhuria";
+  src: url("./assets/fonts/Jomhuria-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme {
@@ -38,14 +46,11 @@ body,
   height: 100%;
 }
 
-@layer utilities {
-  .font-sans {
-    --tw-leading: calc(var(--spacing) * 4) /* 0.75rem = 12px */;
-    line-height: calc(var(--spacing) * 4) /* 0.75rem = 12px */;
-    margin-bottom: -0.1em;
-  }
+/* Sans */
+h1,
+h2 {
+  line-height: 16px;
 }
-
 
 /* Text gradient */
 .text-master,

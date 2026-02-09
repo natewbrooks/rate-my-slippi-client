@@ -20,13 +20,9 @@ export const UserHeader = ({ user, region }: UserHeaderProps) => {
           <Icon icon="mingcute:user-4-fill" className='w-8 h-8'></Icon>
         </div>
       </div>
-      <div className='bg-red py-3 px-6 flex flex-col justify-between text-white'>
-        <div className='flex gap-2 items-center text-3xl font-sans -mb-[0.2em] leading-3'>
-          <h3>{region}</h3>
-          <h3>•</h3>
-          <span className=''>
-            <img></img>
-            {user?.displayName}</span>
+      <div className='bg-red py-2 px-6 flex flex-col justify-between text-white'>
+        <div className='flex gap-2 items-center text-3xl font-sans'>
+          <h2>{region} • {user?.displayName}</h2>
         </div>
       </div>
     </div>
