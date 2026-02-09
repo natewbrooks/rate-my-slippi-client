@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from "../../../public/brand/logo.svg"
 import { Link } from '@tanstack/react-router';
 import type { SlippiUser } from '../../api/types';
 import { Icon } from '@iconify/react';

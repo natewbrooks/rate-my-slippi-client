@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import logo from "../../public/brand/textLogo.svg";
+import logo from "@/assets/images/brand/textLogo.svg";
 import { Icon } from "@iconify/react";
 import { validateTag, normalizeTagInput } from "../utils/tag";
 import { useRouter } from "@tanstack/react-router";

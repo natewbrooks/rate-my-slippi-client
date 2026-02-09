@@ -47,7 +47,7 @@ export const UserBanner = ({ user }: UserBannerProps) => {
           className={cn(["font-sans flex items-center gap-1.5", rankColorClass])}
         >
           {RankIcon ? <img src={RankIcon} className='relative w-7'></img> : null}
-          <h3 className='text-[42px] leading-4'>{rankLower.toUpperCase()} {!isGrandmaster ? variantRaw : ""}</h3>
+          <h3 className='text-[42px] leading-4 tracking-wide'>{rankLower.toUpperCase()} {!isGrandmaster ? variantRaw : ""}</h3>
         </div>
       </div>
 
