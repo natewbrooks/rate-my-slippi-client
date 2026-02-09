@@ -22,7 +22,8 @@ export const UserBanner = ({ user }: UserBannerProps) => {
   }
 
   const parts = user?.rankedProfile?.rankName?.toLowerCase().split(" ") ?? [];
-  const isGrandmaster = ((parts[0] == "master") && isFinite(user?.rankedProfile?.dailyGlobalPlacement));
+  const globalPlacement = user?.rankedProfile?.dailyGlobalPlacement && isFinite(user?.rankedProfile?.dailyGlobalPlacement)
+  const isGrandmaster = ((parts[0] == "master") && globalPlacement);
 
   const rankLower = isGrandmaster ? "grandmaster" : (parts[0] ?? "unranked");
   const rankColorClass = RANK_COLOR_MAP[rankLower] ?? RANK_COLOR_MAP.unranked;
