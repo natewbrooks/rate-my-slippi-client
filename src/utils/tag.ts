@@ -9,7 +9,6 @@ export const validateTag = (tag: string): string | null => {
   return normalized;
 };
 
-
 export const normalizeTagInput = (raw: string): string => {
   const v = raw.replace("-", "#").toUpperCase();
 
@@ -29,6 +28,12 @@ export const normalizeTagInput = (raw: string): string => {
         hasHash = true;
       }
     } else if (/[0-9]/.test(ch)) {
+      if (!hasHash && result.length > 0) {
+        result += "#";
+        hasHash = true;
+        if (result.length >= 8) break;
+      }
+
       if (hasHash) {
         result += ch;
       }

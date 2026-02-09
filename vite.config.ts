@@ -24,6 +24,7 @@ export default defineConfig({
     },
   },
   server: {
+    allowedHosts: ["glabrous-charlize-unonerously.ngrok-free.dev"],
     proxy: {
       "/api": {
         target: "http://localhost:3000",

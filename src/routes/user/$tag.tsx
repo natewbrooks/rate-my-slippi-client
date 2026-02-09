@@ -24,8 +24,6 @@ export const Route = createFileRoute('/user/$tag')({
 function RouteComponent() {
   const { tag } = Route.useParams()
   const { data, error } = useQuery(userQueryOptions(tag))
-  console.log(data)
-  console.log(error)
 
   const shortContinent = (cntnt: string) => {
     switch (cntnt) {

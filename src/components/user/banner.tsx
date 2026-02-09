@@ -39,7 +39,7 @@ export const UserBanner = ({ user }: UserBannerProps) => {
     <h3 className="font-serif text-2xl">{user?.displayName}</h3>
 
       <div className="flex flex-col gap-2.5">
-        <h3 className="font-sans text-[64px] leading-4">
+        <h3 className="font-sans text-[64px] leading-4 tracking-wide">
           {user?.connectCode}
         </h3>
 

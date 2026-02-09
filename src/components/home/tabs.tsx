@@ -22,9 +22,9 @@ export function SlidingTabs() {
   const w = 100 / tabs.length;
 
   return (
-    <div className="w-full bg-darkest rounded-2xl relative">
+    <div className="w-full bg-darkest rounded-xl relative">
       <div
-        className="absolute top-0 h-full rounded-2xl bg-red transition-transform duration-300 ease-out"
+        className="absolute top-0 h-full rounded-xl bg-red transition-transform duration-300 ease-out"
         style={{
           width: `${w}%`,
           transform: `translateX(${activeIndex * 100}%)`,
@@ -38,8 +38,8 @@ export function SlidingTabs() {
               key={t.key}
               type="button"
               onClick={() => setActive(t.key)}
-              className={`w-full text-4xl rounded-xl text-center transition-colors duration-300 ${
-                isActive ? "text-white" : "text-white/50 hover:text-white/80"
+              className={`w-full text-4xl rounded-xl text-center transition-colors duration-300 cursor-pointer ${
+                isActive ? "text-white" : "text-white/30"
               }`}
             >
               <h3 className="leading-8">{t.label}</h3>

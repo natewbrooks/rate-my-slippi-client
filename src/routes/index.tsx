@@ -27,7 +27,7 @@ function HomeComponent() {
       </div>
 
       <div className="flex justify-center items-center">
-        <img src={logo} width={150} fetchPriority="high" />
+        <img src={logo} width={180} fetchPriority="high" />
       </div>
 
       <div className="flex flex-col -space-y-1">
