@@ -1,46 +1,49 @@
 import React from 'react'
 import { Link } from '@tanstack/react-router';
 import type { SlippiUser } from '../../api/types';
-import { Icon } from '@iconify/react';
-
+import { BugIcon, DonateIcon, MailIcon } from '@/assets/icons';
 
 export const HomeFooter = ({}) => {
   const links = [
     {
       name: "Donate",
       href: "/donate",
-      icon: "bxs:donate-heart"
+      Icon: DonateIcon
     },
     {
       name: "Contact Me",
       href: "/contact",
-      icon: "mingcute:mail-fill"
+      Icon: MailIcon
     },
     {
       name: "Bug Report",
       href: "/bugs",
-      icon: "solar:bug-bold"
+      Icon: BugIcon
     }
   ];
 
   return (
-    <div className='flex justify-between items-center bg-red w-full'>
-      <div className='text-white py-2 px-4'> 
+    <div className='flex flex-col'>
+      <div className='bg-darkest text-white text-center text-3xl'>
+        <span>“Suck Tuah? More like suck you-ah” - Zain</span>
+      </div>
+      <div className='flex justify-between items-center bg-red w-full'>
+      <div className='text-white py-2 pl-6'> 
         <h2 className='font-sans text-3xl'>Created by n8ful</h2>
         <h3 className='font-serif text-sm leading-4'>Not affiliated with Slippi</h3>
       </div>
       <div className="flex h-full">
-        {links.map(({ name, href, icon }) => (
+        {links.map(({ name, href, Icon }) => (
           <Link
             key={name}
             to={href}
             className="flex items-center hover:bg-white hover:text-red text-white transition-colors border-l-4 border-darkest px-4"
           >
-            <Icon icon={icon} className="w-7 h-7" />
+            <Icon className="w-7 h-7" />
           </Link>
         ))}
       </div>
-
     </div>
+</div>
   )
 }

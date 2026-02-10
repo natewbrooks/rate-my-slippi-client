@@ -50,7 +50,7 @@ function HomeComponent() {
           <input
             value={tag}
             onChange={(e) => setTag(normalizeTagInput(e.target.value))}
-            className="bg-darkest w-full text-8xl placeholder:text-white/20 text-white px-4 h-18 flex-1 rounded-l-2xl outline-none"
+            className="bg-darkest tracking-wide w-full text-[80px] placeholder:text-white/20 text-white px-4 h-18 flex-1 rounded-l-2xl outline-none"
             placeholder="TAG#000"
           />
           <button
@@ -61,7 +61,7 @@ function HomeComponent() {
             }`}
           >
             <ArrowIcon
-              className={`w-12 h-14 rotate-270 transition-colors duration-300 ${
+              className={`w-10 h-10 rotate-270 transition-colors duration-300 ${
                 isValid ? " text-white group-hover:text-darkest" : "text-white/50"
               }`}
             />
