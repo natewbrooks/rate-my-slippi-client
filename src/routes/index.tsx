@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import logo from "@/assets/images/brand/textLogo.svg";
-import { Icon } from "@iconify/react";
 import { validateTag, normalizeTagInput } from "../utils/tag";
 import { useRouter } from "@tanstack/react-router";
-import { ArrowIcon } from "@/assets/icons";
+import { ArrowIcon, SunIcon, UserIcon } from "@/assets/icons";
 import { SlidingTabs } from "@/components/home/tabs";
+import TextLogo from "@/assets/images/brand/textLogo.svg?react"
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
@@ -21,13 +20,13 @@ function HomeComponent() {
     <div className="flex flex-col space-y-4 w-full h-full p-6 bg-dark">
       <div className="flex justify-end items-center w-full">
         <div className="text-white flex gap-3">
-          <Icon icon="stash:sun-solid" className="w-8 h-8" />
-          <Icon icon="mingcute:user-4-fill" className="w-8 h-8" />
+          <SunIcon className="w-8 h-8" />
+          <UserIcon className="w-8 h-8" />
         </div>
       </div>
 
       <div className="flex justify-center items-center">
-        <img src={logo} width={180} fetchPriority="high" />
+        <TextLogo className="w-48 h-auto" aria-label="Rate My Slippi"/>
       </div>
 
       <div className="flex flex-col -space-y-1">

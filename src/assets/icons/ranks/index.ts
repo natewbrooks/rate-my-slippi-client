@@ -39,7 +39,17 @@ export {
   Grandmaster,
 };
 
-export const RANK_ICON_MAP = {
+export type Rank =
+  | "bronze"
+  | "silver"
+  | "gold"
+  | "platinum"
+  | "diamond"
+  | "grandmaster";
+
+export type RankIcon = string;
+
+export const RANK_ICON_MAP: Record<Rank, RankIcon[]> = {
   bronze: [Bronze1, Bronze2, Bronze3],
   silver: [Silver1, Silver2, Silver3],
   gold: [Gold1, Gold2, Gold3],

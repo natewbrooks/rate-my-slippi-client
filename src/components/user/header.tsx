@@ -1,4 +1,4 @@
-import logo from "@/assets/images/brand/logo.svg"
+import Logo from "@/assets/images/brand/logo.svg?react"
 import { Link } from '@tanstack/react-router';
 import type { SlippiUser } from '../../api/types';
 import { SunIcon, UserIcon } from '@/assets/icons';
@@ -12,7 +12,7 @@ export const UserHeader = ({ user, region }: UserHeaderProps) => {
   return (
     <div>
       <div className='flex w-full justify-between p-4 items-center'>
-        <Link to='/' href='/'><img src={logo} width={64}/></Link>
+        <Link to='/' href='/'><Logo className="w-16 h-auto" aria-label="Rate My Slippi"/></Link>
         <div className='text-white flex gap-3'>
           <SunIcon className='w-8 h-8'/>
           <UserIcon className='w-8 h-8'/>
