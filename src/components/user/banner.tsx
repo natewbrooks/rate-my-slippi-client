@@ -2,6 +2,7 @@ import React from 'react'
 import { cn } from "../../lib/utils"
 import type { SlippiUser } from '../../api/types';
 import { RANK_ICON_MAP, type Rank } from "@/assets/icons/ranks";
+import { Tooltip } from '../ui/tooltip';
 
 interface UserBannerProps { 
   user: SlippiUser | undefined;
@@ -62,48 +63,45 @@ export const UserBanner = ({ user }: UserBannerProps) => {
         </div>
       </div>
 
-      <div className='grid place-items-center grid-cols-6 w-fit gap-1 '>
+      <div className="flex flex-wrap gap-2">
         {user?.characters?.map((char, i) => (
-          <div
-            key={`${char.name}-${i}`}
-            className="relative"
-          >
-            {/* SVG ring for more control */}
-            <svg 
-              className="absolute inset-0 -rotate-90 scale-110" 
-              viewBox="0 0 36 36"
-            >
-              <circle
-                cx="18"
-                cy="18"
-                r="16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="4"
-                className="text-green/20"
+          <Tooltip label={<div className='flex flex-col leading-4 items-center'><span>{char.gameCount} {char.gameCount === 1 ? "game" : "games"}</span><span>{char.percentage}%</span></div>} side="top">
+            <div className="relative w-7 h-7">
+              <svg
+                className="absolute inset-0 -rotate-90 scale-110"
+                viewBox="0 0 36 36"
+              >
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                  className="text-green/20"
+                />
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeDasharray={`${char.percentage} 100`}
+                  className="text-green"
+                  strokeLinecap="round"
+                />
+              </svg>
+
+              <img
+                src={char.imageUrl}
+                className="relative p-1 rounded-full w-full h-full"
+                width={28}
+                height={28}
+                alt={char.name}
               />
-              <circle
-                cx="18"
-                cy="18"
-                r="16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeDasharray={`${char.percentage} 100`}
-                className="text-green"
-                strokeLinecap="round"
-              />
-            </svg>
-            
-            {/* Image */}
-            <img
-              src={char.imageUrl}
-              fetchPriority="high"
-              className="relative p-1 rounded-full"
-              width={28}
-              alt={char.name}
-            />
-          </div>
+            </div>
+          </Tooltip>
         ))}
       </div>
     </div>
