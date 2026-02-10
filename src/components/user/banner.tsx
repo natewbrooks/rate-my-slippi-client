@@ -4,7 +4,7 @@ import type { SlippiUser } from "../../api/types";
 import { RANK_ICON_MAP, type Rank } from "@/assets/icons/ranks";
 import { Tooltip } from "../ui/tooltip";
 import { CharacterIcon } from "../ui/character-icon";
-import { RANK_BG_MAP, RANK_COLOR_MAP } from "@/lib/ranks";
+import { RANK_BG_MAP, RANK_COLOR_MAP } from "@/utils/ranks";
 
 interface UserBannerProps {
   user: SlippiUser | undefined;
@@ -27,9 +27,7 @@ export const UserBanner = ({ user }: UserBannerProps) => {
   const variantIndexUnclamped = (Number.parseInt(variantRaw ?? "1", 10) || 1) - 1;
 
   const icons = rankLower === "unranked" ? undefined : RANK_ICON_MAP[rankLower];
-  const variantIndex = icons
-    ? Math.min(Math.max(0, variantIndexUnclamped), icons.length - 1)
-    : 0;
+  const variantIndex = icons ? Math.min(Math.max(0, variantIndexUnclamped), icons.length - 1) : 0;
 
   const RankIcon = icons?.[variantIndex];
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from '@tanstack/react-router';
 import type { SlippiUser } from '../../api/types';
 import { BugIcon, DonateIcon, MailIcon } from '@/assets/icons';
+import { QuoteMarquee } from './quote-marquee';
 
 export const HomeFooter = ({}) => {
   const links = [
@@ -24,9 +25,7 @@ export const HomeFooter = ({}) => {
 
   return (
     <div className='flex flex-col'>
-      <div className='bg-darkest text-white text-center text-3xl'>
-        <span>“Suck Tuah? More like suck you-ah” - Zain</span>
-      </div>
+      <QuoteMarquee />
       <div className='flex justify-between items-center bg-red w-full'>
       <div className='text-white py-2 pl-6'> 
         <h2 className='font-sans text-3xl'>Created by n8ful</h2>

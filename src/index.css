@@ -33,8 +33,8 @@
   --color-gold: #F6A51E;
   --color-platinum: #91E8E0;
   --color-diamond: #5DDFF4;
+  --color-master: #6847BA;
   /* Rank gradients */
-  --gradient-master: linear-gradient(to top, #283E56 0%, #F9213C 100%);
   --gradient-grandmaster: linear-gradient(to top, #283E56 -9%, #F9213C 100%);
   /* Font stuff */
   --font-sans: "Jomhuria", "sans";
@@ -55,7 +55,6 @@ h2 {
 }
 
 /* Text gradient */
-.text-master,
 .text-grandmaster {
   background: var(--gradient-grandmaster);
   -webkit-background-clip: text;
@@ -63,7 +62,6 @@ h2 {
   color: transparent;
 }
 
-.bg-grandmaster,
-.bg-master {
+.bg-grandmaster {
   background: var(--gradient-grandmaster);
 }

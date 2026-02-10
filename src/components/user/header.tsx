@@ -38,6 +38,7 @@ export const UserHeader = ({ user, region }: UserHeaderProps) => {
     navigate({
       to: "/user/$tag",
       params: { tag: query.replace("#", "-") },
+      search: { trail: "reset" } as any,
     });
     setQuery("");
     setSearchOpen(false);
@@ -56,7 +57,7 @@ export const UserHeader = ({ user, region }: UserHeaderProps) => {
               type="text"
               value={query}
               placeholder="TAG#000"
-              className="tracking-wide text-3xl outline-none w-28 bg-darkest px-2 rounded"
+              className="tracking-wide text-3xl outline-none w-28 bg-red text-center px-2 rounded"
               onChange={(e) => {
                 const v = normalizeTagInput(e.target.value);
                 setQuery(v);
@@ -81,7 +82,7 @@ export const UserHeader = ({ user, region }: UserHeaderProps) => {
       <div className="bg-red py-2 px-6 flex flex-col justify-between text-white">
         <div className="flex gap-2 items-center text-3xl font-sans">
           <h2>
-            {region && (<>{region} •</>)}{user?.displayName}
+            {region && (<>{region} •</>)} {user?.displayName}
           </h2>
         </div>
       </div>

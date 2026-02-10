@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { validateTag, normalizeTagInput } from "../utils/tag";
+import { validateTag } from "@/utils/tag";
 import { useRouter } from "@tanstack/react-router";
-import { ArrowIcon, SunIcon, UserIcon } from "@/assets/icons";
+import { SunIcon, UserIcon } from "@/assets/icons";
 import { SlidingTabs } from "@/components/home/tabs";
 import TextLogo from "@/assets/images/brand/textLogo.svg?react"
+import PlayerSearch from "@/components/ui/player-search";
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
@@ -29,48 +30,17 @@ function HomeComponent() {
         <TextLogo className="w-48 h-auto" aria-label="Rate My Slippi"/>
       </div>
 
-      <div className="flex flex-col -space-y-1">
-        <h3 className="text-white/20 text-3xl tracking-wider">
-          Enter a <span className="text-green">slippi</span> player tag:
-        </h3>
-
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (!isValid) return;
-
-            router.navigate({
-              to: "/user/$tag",
-              params: { tag: tag.replace("#", "-") },
-            });
-          }}
-          className="flex items-center justify-center"
-        >
-          <input
-            value={tag}
-            onChange={(e) => setTag(normalizeTagInput(e.target.value))}
-            className="bg-darkest tracking-wide w-full text-[80px] placeholder:text-white/20 text-white px-4 h-18 flex-1 rounded-l-2xl outline-none"
-            placeholder="TAG#000"
-          />
-          <button
-            type="submit"
-            disabled={!isValid}
-            className={`w-fit px-5 h-full disabled:opacity-50 rounded-r-2xl group transition-colors duration-300 bg-red ${
-              isValid ? "cursor-pointer hover:bg-green hover:opacity-90" : " "
-            }`}
-          >
-            <ArrowIcon
-              className={`w-10 h-10 rotate-270 transition-colors duration-300 ${
-                isValid ? " text-white group-hover:text-darkest" : "text-white/50"
-              }`}
-            />
-          </button>
-        </form>
-
-        {tag.length > 0 && !validateTag(tag) ? (
-          <div className="text-red text-2xl">Invalid tag</div>
-        ) : null}
-      </div>
+      <PlayerSearch
+        tag={tag}
+        setTag={setTag}
+        isValid={isValid}
+        onSubmit={() => {
+          router.navigate({
+            to: "/user/$tag",
+            params: { tag: tag.replace("#", "-") },
+          });
+        }}
+      />
 
       <SlidingTabs />
 
