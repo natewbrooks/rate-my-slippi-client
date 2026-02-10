@@ -114,6 +114,14 @@ export class Character {
   getId(dkClaus?: boolean): number | null;
 }
 
+export class CharacterData {
+  name: string;
+  displayName: string;
+  gameCount: number;
+  percentage: number;
+  imageUrl: string;
+}
+
 // ============================================================================
 // Ranked Netplay Profile
 // ============================================================================
@@ -176,13 +184,7 @@ export class SlippiUser {
   status: string | null;
   subscription: SubscriptionStatus;
   rankedProfile: RankedNetplayProfile;
-  characters: Array<{
-    name: string;
-    displayName: string;
-    gameCount: number;
-    percentage: number;
-    imageUrl: string;
-  }>;
+  characters: CharacterData[];
 }
 
 // ============================================================================
