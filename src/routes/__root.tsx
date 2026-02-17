@@ -16,7 +16,6 @@ function RootComponent() {
       <div id="app-wrapper" className={`flex flex-col w-full h-full justify-center items-center bg-darkest`}>
         <div id="layout" className={`w-full h-full flex flex-col justify-between max-w-xl overflow-hidden`}>
             <Outlet />
-            <HomeFooter/>
         </div>
       </div>
       {/* <TanStackRouterDevtools position="bottom-right" /> */}

@@ -6,6 +6,7 @@ import { SunIcon, UserIcon } from "@/assets/icons";
 import { SlidingTabs } from "@/components/home/tabs";
 import TextLogo from "@/assets/images/brand/textLogo.svg?react"
 import PlayerSearch from "@/components/ui/player-search";
+import { HomeFooter } from "@/components/home/footer";
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
@@ -45,6 +46,7 @@ function HomeComponent() {
       <SlidingTabs />
 
       <div className="w-full h-full bg-darkest rounded-2xl"> </div>
+      <HomeFooter/>
     </div>
   );
 }

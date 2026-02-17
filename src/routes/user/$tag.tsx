@@ -8,6 +8,7 @@ import { userQueryOptions } from "../../api/user.api";
 import { UserHeader } from "../../components/user/header";
 import { UserBanner } from "../../components/user/banner";
 import RouteHistory from "@/components/ui/route-history";
+import { UserFooter } from "@/components/user/footer";
 
 export const Route = createFileRoute("/user/$tag")({
   loader: async ({ params, context }) => {
@@ -60,12 +61,15 @@ function RouteComponent() {
   const continent = shortContinent(data?.rankedProfile?.continent || "");
 
   return (
-    <div>
-      <UserHeader user={data} region={continent} />
-      <RouteHistory/>
-      <div className="py-2">
-        <UserBanner user={data} />
+    <div className="h-full w-full flex flex-col justify-between">
+      <div>
+        <UserHeader user={data} region={continent} />
+        <RouteHistory/>
+        <div className="py-2 ">
+          <UserBanner user={data} />
+        </div>
       </div>
+      <UserFooter />
     </div>
   );
 }
